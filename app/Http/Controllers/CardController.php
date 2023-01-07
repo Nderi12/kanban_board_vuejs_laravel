@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class CardController extends Controller
 {
@@ -42,7 +43,16 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::transaction(function() use($request) {
+            Card::create([
+                'title' => $request->title,
+                'description' => $request->description
+            ]);
+        });
+
+        return response()->json([
+            'message' => "Card Created Successfully"
+        ], Response::HTTP_OK);
     }
 
     /**

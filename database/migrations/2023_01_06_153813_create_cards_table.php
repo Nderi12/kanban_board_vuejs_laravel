@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->foreignIdFor(Column::class)->nullable()->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

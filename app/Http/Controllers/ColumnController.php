@@ -45,12 +45,12 @@ class ColumnController extends Controller
     {
         DB::transaction(function() use($request) {
             Column::create([
-                'title' => $request->name
+                'title' => $request->title
             ]);
         });
 
         return response()->json([
-            'message' => "Permission Created Successfully"
+            'message' => "Column Created Successfully"
         ], Response::HTTP_OK);
     }
 
@@ -98,8 +98,13 @@ class ColumnController extends Controller
     {
         $column = Column::where('id', $id)->first();
 
-        //  Delete the column
-        $column->delete();
+        DB::transaction(function() use($column) {
+            //  Delete the column cards
+            $column->cards()->delete();
+    
+            // Delete the main columns
+            $column->delete();
+        });
 
         // Return response message
         return response()->json([
