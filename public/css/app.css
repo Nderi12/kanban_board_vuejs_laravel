@@ -1,9 +1,1 @@
-body {
-    color: #6f7a7f;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    font-family: "poppins", sans-serif;
-    line-height: 1.5;
-    background: #e0e3e4;
-    overflow-x: hidden; }
+body{background:#e0e3e4;color:#6f7a7f;font-family:poppins,sans-serif;font-size:.875rem;font-style:normal;font-weight:400;line-height:1.5;overflow-x:hidden}
