@@ -27,8 +27,10 @@ Route::post('login', [ApiAuthController::class, 'login'])->name('login');
 Route::post('register', [ApiAuthController::class, 'register'])->name('register');
 
 Route::group(['middleware' => ['auth:api']], function(){
-    Route::get('/card-list', [CardController::class, 'index'])->name('cards-list');
+    Route::get('/column-list', [ColumnController::class, 'index'])->name('column-list');
+    Route::get('/card-list', [CardController::class, 'index'])->name('card-list');
 });
+
 Route::resource('columns', ColumnController::class)->only(['index', 'store', 'update', 'destroy']);
 
 Route::resource('cards', CardController::class)->only(['index', 'store', 'update', 'destroy']);
