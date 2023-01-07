@@ -79,18 +79,18 @@ export default {
     },
     createNewColumn(){
       axios.post("/columns/", {
-        card: this.card,
+        title: this.title,
         _method: "POST",
       });
       this.getColumns();
     },
-    createNewCard(){
-      axios.post("/cards/", {
-        title: this.card,
-        _method: "POST",
-      });
-      this.getColumns();
-    },
+    // createNewCard(){
+    //   axios.post("/cards/", {
+    //     card: this.card,
+    //     _method: "POST",
+    //   });
+    //   this.getColumns();
+    // },
     update(id, columnId){
       var data = {
         columnId: columnId
