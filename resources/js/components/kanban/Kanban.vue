@@ -84,6 +84,7 @@ export default {
       });
       this.getColumns();
     },
+    //To-do: add a new method
     // createNewCard(){
     //   axios.post("/cards/", {
     //     card: this.card,
